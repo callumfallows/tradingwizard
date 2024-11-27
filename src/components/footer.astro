@@ -1,0 +1,34 @@
+---
+import Container from './container.astro';
+---
+
+<footer class="flex place-items-center w-full mt-8">
+  <div class="bg-gradient-custom w-full">
+    <Container>
+      <div class="flex w-full flex-col justify-between gap-4 rounded-lg mx-auto p-10">
+        <p class="text-white text-left text-sm">
+          La négociation sur les marchés comporte un niveau de risque élevé et ne convient pas à
+          tous les investisseurs. Un effet de levier élevé peut fonctionner à la fois en sa faveur
+          et en son désavantage. Avant de prendre une décision, un investisseur doit examiner
+          attentivement ses objectifs, son expérience et son niveau de risque. Il est possible de
+          perdre tout ou partie du capital initial investi. Par conséquent, vous ne devriez pas
+          investir de l’argent que vous ne pouvez pas vous permettre de perdre. L’investisseur
+          devrait être conscient des risques associés à la négociation d’instruments financiers, en
+          cas de doute, essayer de demander l’aide d’un conseiller financier indépendant
+        </p>
+        <h3 class="text-white text-center text-2xl font-bold">
+          Mentions légales – CGV – Contact – Politique de confidentialité
+        </h3>
+        <p class="text-white text-center text-md">
+          Copyright © {new Date().getFullYear()}
+        </p>
+      </div>
+    </Container>
+  </div>
+</footer>
+
+<style>
+  .bg-gradient-custom {
+    background: linear-gradient(147deg, #16192c 42%, #327ab4 100%);
+  }
+</style>

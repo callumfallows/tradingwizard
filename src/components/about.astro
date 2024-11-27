@@ -1,0 +1,71 @@
+---
+import Link from '@components/ui/link.astro';
+import { Image } from 'astro:assets';
+import Card from './ui/Card.astro';
+import Container from './container.astro';
+import BackgroundImage from './ui/BackgroundImage.astro';
+---
+
+<main class="flex place-items-center">
+  <BackgroundImage
+    src="https://abhiworks.com/wp/uwear1/wp-content/uploads/2024/11/WhatsApp-Image-2024-11-16-at-08.16.17_1656cedc.jpg"
+    className="hero-section py-10"
+  >
+    <Container>
+      <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-7xl items-center p-10">
+        {/* Left Column */}
+        <div class="relative max-w-lg">
+          <Image
+            src="https://abhiworks.com/wp/uwear1/wp-content/uploads/2024/11/WhatsApp-Image-2024-11-25-at-08.08.10_df726510-scaled.jpg"
+            alt="JONATHAN GIRARD"
+            width={512}
+            height={683}
+            class="rounded-xl w-full"
+          />
+          <Card className="absolute bottom-5 left-5 right-5 bg-white/90 backdrop-blur-sm">
+            <div class="p-2">
+              <h3 class="text-xl font-bold text-gray-800">JONATHAN GIRARD</h3>
+              <p class="text-gray-600">Trader et formateur</p>
+            </div>
+          </Card>
+        </div>
+
+        {/* Right Column */}
+        <div class="space-y-6">
+          <div class="flex flex-col gap-2">
+            <h2 class="text-4xl font-bold tracking-tight text-title-alt">JONATHAN GIRARD</h2>
+            <h3 class="text-xl text-bold text-subtitle">
+              Un trader expérimenté, passionné, et surtout transparent sur ses positions
+              quotidiennes sur les indices boursiers.
+            </h3>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <p class="text-gray-800">
+              A 18 ans Jonathan tombe sur un site nommé “goldenboys”, il apprend ce que c’est que
+              des actions. 2 ans plus tard il rejoint une compétition de trading en ligne organisé
+              par le site Zonebourse, c’est la ou il va se perfectionner. Il fait des études de
+              commerce international, en parallèle de son travail, il trade soit en day trading soit
+              en swing trading. En 2016 il commence à s’intéresser au marché futures en tradant
+              principalement les indices et bonds du trésor. Fort d’une expérience de + de 6 ans sur
+              les futures et 14 ans sur les actions, il décide de créer WIZARD TRADING et de
+              partager son savoir et son expérience en trading à une communauté Son objectif N°1 est
+              de rendre les trader profitable
+            </p>
+          </div>
+          <div class="flex justify-center items-center">
+            <Link href="#" style="primary">Rejoignez le défi</Link>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </BackgroundImage>
+</main>
+
+<style>
+  .hero-section {
+    background-size: cover;
+    background-position: bottom;
+    background-position: left;
+  }
+</style>

@@ -1,0 +1,54 @@
+---
+import Container from './container.astro';
+import Accordion from './ui/Accordion.astro';
+import Link from './ui/link.astro';
+---
+
+<main class="flex place-items-center w-full">
+  <div class="bg-white w-full">
+    <Container>
+      <div class="flex w-full flex-col sm:flex-row justify-between gap-8 rounded-lg mx-auto p-10">
+        <div class="flex w-full flex-col gap-6">
+          <h3 class="text-primary font-bold text-3xl mb-6 text-left">
+            Questions posées par nos membres
+          </h3>
+          <div class="flex justify-flex-start">
+            <Link href="#" style="primary">Rejoignez le défi</Link>
+          </div>
+        </div>
+
+        <div class="flex w-full flex-col">
+          <div class="space-y-0 w-full max-w-xl">
+            <Accordion
+              color="black"
+              title="Combien de temps dure le live?"
+              content={`Les laggings indicateurs ne vous aident pas, bien au contraire (MACD,RSI,stochastic..)
+  Les 7 erreurs que font les traders débutants et comment les éviter`}
+            />
+            <Accordion
+              color="black"
+              title="Y aura-t-il un replay du live?"
+              content={`Non il n’y aura pas de replay, il s’agit d’un webinaire exclusif!`}
+            />
+            <Accordion
+              color="black"
+              title="Y aura t-il des questions réponses?"
+              content={`Oui en fin de webinaire environ 30min de questions/réponses`}
+            />
+            <Accordion
+              color="black"
+              title="Le webinaire est-il adapté aux débutants?"
+              content={`Oui il est ouvert à tous, nous n’aborderons que les concepts de base et non pas des techniques`}
+            />
+          </div>
+        </div>
+      </div>
+    </Container>
+  </div>
+</main>
+
+<style>
+  .bg-gradient-custom {
+    background: linear-gradient(147deg, #16192c 42%, #327ab4 100%);
+  }
+</style>

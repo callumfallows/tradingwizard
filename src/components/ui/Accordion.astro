@@ -1,0 +1,37 @@
+---
+interface Props {
+  title: string;
+  content: string;
+  color?: string;
+}
+
+const { title, content, color = '#FFFFFF' } = Astro.props;
+---
+
+<div class="border rounded-lg w-full">
+  <button
+    class="w-full px-4 py-3 text-left flex justify-between items-center"
+    data-accordion-toggle
+  >
+    <span class={`font-black text-${color}`}>{title}</span>
+    <svg class="w-5 h-5 transition-transform" fill="none" stroke={color} viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"
+      ></path>
+    </svg>
+  </button>
+  <div class="accordion-content hidden px-4 py-3 border-t" data-accordion-content>
+    <p class={`text-${color}`}>{content}</p>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('[data-accordion-toggle]').forEach(button => {
+    button.addEventListener('click', () => {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('svg');
+
+      content.classList.toggle('hidden');
+      icon.classList.toggle('rotate-180');
+    });
+  });
+</script>

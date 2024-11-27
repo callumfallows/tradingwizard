@@ -1,0 +1,65 @@
+---
+import Container from './container.astro';
+import Accordion from './ui/Accordion.astro';
+import Link from './ui/link.astro';
+---
+
+<main class="flex place-items-center w-full">
+  <div class="bg-gradient-custom w-full py-20">
+    <Container>
+      <div class="flex w-full flex-col lg:flex-row justify-between gap-8 rounded-lg mx-auto p-10">
+        <div class="flex flex-col w-full gap-2">
+          <h3 class="text-white font-black text-3xl mb-8 text-left">
+            Découvrez le contenu du programme
+          </h3>
+          <div class="space-y-2 md:max-w-2xl">
+            <Accordion
+              color="white"
+              title="Pourquoi 90% des traders perdent sur les marchés?"
+              content={`Les laggings indicateurs ne vous aident pas, bien au contraire (MACD,RSI,stochastic..)
+  Les 7 erreurs que font les traders débutants et comment les éviter`}
+            />
+            <Accordion
+              color="white"
+              title="Découvrez les indicateurs avancés pour un trading gagnant"
+              content={`Trader selon le prix et le volume reste la meilleur stratégie en trading`}
+            />
+            <Accordion
+              color="white"
+              title="Une approche systématique (trading sans émotions)"
+              content={`La méthode pour analyser n’importe quel marché comme un professionnel
+  Répéter les mêmes reflexes engendre une amélioration significative des résultats en trading`}
+            />
+            <Accordion
+              color="white"
+              title="Ne pas utiliser son propre capital & démultiplier ses gains"
+              content={`Être en sur levier, trader avec un capital insuffisant est souvent la raison pour laquelle
+  les traders débutant ne réussissent pas en trading`}
+            />
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-6">
+          <h3 class="text-white font-black text-3xl mb-6 text-left">
+            Je vais également modifier cela
+          </h3>
+          <ul class="list-disc text-white space-y-2 px-4">
+            <li>Exercices entre les 3 vies</li>
+            <li>Un groupe Discord où nous répondons à toutes vos questions</li>
+            <li>Des rediffusions en direct</li>
+            <li>Des ressources pour comprendre</li>
+          </ul>
+          <div class="flex justify-flex-start">
+            <Link href="#" style="secondary">Rejoignez le défi</Link>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </div>
+</main>
+
+<style>
+  .bg-gradient-custom {
+    background: linear-gradient(147deg, #16192c 42%, #327ab4 100%);
+  }
+</style>

@@ -1,0 +1,107 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const testimonials = [
+  {
+    text: `Encore merci Jonathan de m'accompagner dans les premiers pas des formations Wizard Trading. L'idée pour moi était d'apprendre/réapprendre et de renforcer les bases pour ensuite monter en compétence sur les prochaines formations.
+C'est à la fois technique et accessible à tout public s'intéressant au domaine de l'investissement boursier.
+Avec en plus un suivi de proximité! Top!`,
+    author: 'DE AZEVEDO',
+    rating: 5,
+  },
+  {
+    text: `Domaine totalement opaque pour moi, ce séminaire m' a amene assez de connaissances sur les bases du fonctionnement des investissements financiers pour être autonomme 
+    sur l'analyse des evolutions du marché, en particulier des cryptos, afin de gérer de manière sereine de futurs investissements.
+     Le formateur est à l'écoute de chacun et développe chacun des questionnements des intervenants . Le séminaire à d’ailleurs duré 2 hrs de plus que prévu afin de répondre à toutes les questions des intervenants.`,
+    author: 'Philippe Legrand',
+    rating: 5,
+  },
+  {
+    text: `Je recommande, formation riche en explication avec un suivie et une vraie présence de Jonathan au quotidien pour répondre à nos interrogations.`,
+    author: 'Mickaël Coelho',
+    rating: 5,
+  },
+  {
+    text: `Formation sérieuse et de plus avec des cas, mises en situations réels, et nombreuses explications, Jonathan est expérimenté et de très bons conseils indispensables dans un univers particulier.
+Je recommande.`,
+    author: 'Stéphane Neveu',
+    rating: 5,
+  },
+];
+---
+
+<div class="w-full flex justify-end mx-auto px-0 md:px-4 py-12">
+  <div class="w-full max-w-6xl mx-auto px-4 py-12">
+    <div class="splide" id="testimonial-carousel">
+      <div class="splide__track">
+        <div class="splide__list">
+          {
+            testimonials.map(testimonial => (
+              <div class="splide__slide px-4 sm:min-h[600px]">
+                <div class="flex flex-col">
+                  <div class="bg-white p-6 rounded-lg shadow-lg mb-8 relative w-full max-w-lg">
+                    <p class="text-gray-700 text-sm sm:text-md leading-relaxed">
+                      "{testimonial.text}"
+                    </p>
+                    <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[12px] border-l-transparent border-t-[16px] border-t-white border-r-[12px] border-r-transparent" />
+                  </div>
+                  <div class="flex gap-1 mb-3">
+                    {[...Array(testimonial.rating)].map(() => (
+                      <Icon name="mdi:star" class="w-5 h-5 text-yellow-400" />
+                    ))}
+                  </div>
+                  <p class="font-semibold text-gray-800">{testimonial.author}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import Splide from '@splidejs/splide';
+
+  new Splide('#testimonial-carousel', {
+    type: 'loop',
+    rewindByDrag: true,
+    breakpoints: {
+      1920: {
+        perPage: 2,
+      },
+      1400: {
+        perPage: 2,
+      },
+      1399: {
+        perPage: 2,
+      },
+      900: {
+        perPage: 1,
+      },
+      767: {
+        perPage: 1,
+      },
+    },
+    autoplay: true,
+    interval: 6000,
+    arrows: false,
+    pagination: true,
+    gap: '1rem',
+  }).mount();
+</script>
+
+<style>
+  @import '@splidejs/splide/css';
+
+  .splide__arrow {
+    background: #ffffff;
+    opacity: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .splide__pagination__page.is-active {
+    background: #4f46e5;
+  }
+</style>

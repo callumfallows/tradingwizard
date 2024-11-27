@@ -1,0 +1,19 @@
+---
+import Container from './container.astro';
+import TestimonialCarousel from './ui/TestimonialCarousel.astro';
+---
+
+<main class="flex flex-col place-items-center w-full p-10">
+  <Container>
+    <div class="flex w-full flex-row justify-between gap-2 md:gap-8 rounded-lg mx-auto">
+      <div class="flex flex-col w-full">
+        <h3 class="text-primary font-black text-3xl mb-2 md:mb-8 text-center">
+          Les membres témoignent !
+        </h3>
+      </div>
+    </div>
+  </Container>
+  <div class="flex w-full h-[600px] py-4 md:py-0 md:h-[700px]">
+    <TestimonialCarousel />
+  </div>
+</main>

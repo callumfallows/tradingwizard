@@ -11,7 +11,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/image": "^0.18.0",
     "@fontsource/mulish": "5.1.0",
     "@iconify-json/mdi": "1.2.1",
     "@splidejs/splide": "4.1.4",

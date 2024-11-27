@@ -11,11 +11,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/image": "0.18.0",
+    "@astrojs/image": "^0.18.0",
     "@fontsource/mulish": "5.1.0",
     "@iconify-json/mdi": "1.2.1",
     "@splidejs/splide": "4.1.4",
-    "astro-imagetools": "0.9.0",
     "@astrojs/mdx": "^3.0.1",
     "@astrojs/sitemap": "^3.1.5",
     "@astrojs/tailwind": "^5.1.0",

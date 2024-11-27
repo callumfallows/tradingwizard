@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@astrojs/image": "0.18.0",
-    "@fontsource-variable/bricolage-grotesque": "5.0.6",
     "@fontsource/mulish": "5.1.0",
     "@iconify-json/mdi": "1.2.1",
     "@splidejs/splide": "4.1.4",

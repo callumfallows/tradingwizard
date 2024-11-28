@@ -9,7 +9,7 @@ import CountdownTimer from './ui/CountdownTimer.astro';
 const bgImage = new URL('/hero-bg.jpg', Astro.site).toString();
 ---
 
-<main class="flex place-items-center">
+<main class="flex flex-col place-items-center">
   <BackgroundImage src={bgImage} overlayColor="rgba(0, 0, 0, 0.5)" className="hero-section pb-10">
     <div class="flex justify-center">
       <div class="max-w-[200px] my-4 text-center">
@@ -24,7 +24,7 @@ const bgImage = new URL('/hero-bg.jpg', Astro.site).toString();
       </div>
     </div>
     <div
-      class="flex w-full flex-col items-center justify-center bg-white shadow-2xl shadow-blue-500 max-w-3xl rounded-lg mx-auto my-4 p-2 py-8 sm:p-10 space-y-8"
+      class="flex w-full flex-col items-center justify-center bg-white contact-form max-w-3xl rounded-3xl mx-auto my-4 p-2 py-8 sm:p-10 space-y-8"
     >
       <h1 class="font-sans text-primary text-center font-black text-2xl sm:text-3xl mb-4">
         Maîtrisez le trading avec le volume profile
@@ -71,9 +71,10 @@ const bgImage = new URL('/hero-bg.jpg', Astro.site).toString();
       <p class="text-black text-lg my-4">“Seul un numéro de telephone valide sera accepté”</p>
       <CountdownTimer />
     </div>
-
-    <div class="flex justify-center max-w-3xl mx-auto flex-col gap-4 p-4 sm:p-10 md:px-0 mt-8">
-      <h2 class="text-2xl font-black text-white text-center mb-4">
+  </BackgroundImage>
+  <div class="bg-gradient-custom w-full">
+    <div class="flex justify-center max-w-3xl mx-auto flex-col gap-4 p-4 sm:p-10 md:px-0">
+      <h2 class="text-xl sm:text-2xl font-black text-white text-center mb-4">
         Maitrisez le volume profile en 90j pour un trading rentable
       </h2>
       <p class="text-white text-bold text-lg">
@@ -99,5 +100,18 @@ const bgImage = new URL('/hero-bg.jpg', Astro.site).toString();
         </p>
       </p>
     </div>
-  </BackgroundImage>
+  </div>
 </main>
+
+<style>
+  .contact-form {
+    box-shadow: 0px 0px 15px 3px rgba(41, 134, 174, 0.8);
+    border-style: solid;
+    border-width: 10px 10px 10px 10px;
+    border-color: #11536f;
+  }
+
+  .bg-gradient-custom {
+    background: linear-gradient(147deg, #16192c 42%, #327ab4 100%);
+  }
+</style>

@@ -38,7 +38,7 @@ Je recommande.`,
           {
             testimonials.map(testimonial => (
               <div class="splide__slide px-4 sm:min-h[400px]">
-                <div class="flex flex-col">
+                <div class="flex flex-col items-center">
                   <div class="bg-white p-6 rounded-lg shadow-lg mb-8 relative w-full max-w-lg">
                     <p class="text-gray-700 text-sm sm:text-md leading-relaxed">
                       "{testimonial.text}"
@@ -78,9 +78,12 @@ Je recommande.`,
         perPage: 2,
       },
       900: {
-        perPage: 1,
+        perPage: 2,
       },
       767: {
+        perPage: 2,
+      },
+      600: {
         perPage: 1,
       },
     },

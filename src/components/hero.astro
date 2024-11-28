@@ -15,7 +15,14 @@ import CountdownTimer from './ui/CountdownTimer.astro';
   >
     <div class="flex justify-center">
       <div class="max-w-[200px] my-4 text-center">
-        <Image src={logo} width={551} class="w-full" height={310} alt="Wizard Trading" />
+        <Image
+          src={logo}
+          width={551}
+          loading="eager"
+          class="w-full"
+          height={310}
+          alt="Wizard Trading"
+        />
       </div>
     </div>
     <div

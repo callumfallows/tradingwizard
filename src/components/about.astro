@@ -17,6 +17,7 @@ const jonathon = new URL('/jonathan-girard.jpg', Astro.site).toString();
         {/* Left Column */}
         <div class="relative max-w-lg">
           <Image
+            loading={'lazy'}
             src={jonathon}
             alt="JONATHAN GIRARD"
             width={512}

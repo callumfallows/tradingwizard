@@ -4,19 +4,20 @@ import { Image } from 'astro:assets';
 import Card from './ui/Card.astro';
 import Container from './container.astro';
 import BackgroundImage from './ui/BackgroundImage.astro';
+
+const bgImage = new URL('/bg-alternative.jpg', Astro.site).toString();
+
+const jonathon = new URL('jonathan-girard.jpg', Astro.site).toString();
 ---
 
 <main class="flex place-items-center">
-  <BackgroundImage
-    src="https://abhiworks.com/wp/uwear1/wp-content/uploads/2024/11/WhatsApp-Image-2024-11-16-at-08.16.17_1656cedc.jpg"
-    className="hero-section py-10"
-  >
+  <BackgroundImage src={bgImage} className="hero-section py-10">
     <Container>
       <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-7xl items-center p-10">
         {/* Left Column */}
         <div class="relative max-w-lg">
           <Image
-            src="https://abhiworks.com/wp/uwear1/wp-content/uploads/2024/11/WhatsApp-Image-2024-11-25-at-08.08.10_df726510-scaled.jpg"
+            src={jonathon}
             alt="JONATHAN GIRARD"
             width={512}
             height={683}

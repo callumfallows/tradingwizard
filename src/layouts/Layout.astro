@@ -12,9 +12,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 const resolvedImageWithDomain = new URL('/opengraph.jpg', Astro.site).toString();
 
 const { title } = Astro.props;
+const description = `Pourquoi 90% des Traders Perdent sur les Marchés
+Découvrez les 7 erreurs courantes que font les traders débutants et comprenez pourquoi ces erreurs les empêchent d’être rentables.`;
 
 const makeTitle = title
-  ? title + ' | ' + 'Astroship'
+  ? title + ' | ' + 'Wizard Trading'
   : 'Astroship - Starter Template for Astro with Tailwind CSS';
 ---
 

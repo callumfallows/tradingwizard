@@ -3,13 +3,12 @@ import Card from './ui/Card.astro';
 import Container from './container.astro';
 import BackgroundImage from './ui/BackgroundImage.astro';
 import Link from './ui/link.astro';
+
+const resolvedImageWithDomain = new URL('/hero-bg.jpg', Astro.site).toString();
 ---
 
 <main class="flex place-items-center w-full">
-  <BackgroundImage
-    src="https://abhiworks.com/wp/uwear1/wp-content/uploads/2024/11/WhatsApp-Image-2024-11-16-at-08.16.17_1656cedc.jpg"
-    className="hero-section p-10"
-  >
+  <BackgroundImage src={resolvedImageWithDomain} className="hero-section p-10">
     <Container>
       <div class="flex w-full flex-col justify-center rounded-lg mx-auto sm:p-10">
         <h3 class="text-primary font-black text-3xl mb-8 text-left">
@@ -36,7 +35,7 @@ import Link from './ui/link.astro';
         <div class="flex py-6 mt-4">
           <p class="text-xl">Découvrez les outils et techniques des professionnels</p>
         </div>
-        <div class="flex justify-center items-center">
+        <div class="flex justify-center items-center my-10">
           <Link href="#" style="primary">Rejoignez le défi</Link>
         </div>
       </div>

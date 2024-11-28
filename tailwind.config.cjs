@@ -11,7 +11,7 @@ module.exports = {
         subtitle: '#429CD2',
       },
       fontFamily: {
-        sans: ['Mulish', ...defaultTheme.fontFamily.sans],
+        sans: ['Mulish Variable', ...defaultTheme.fontFamily.sans],
         background: {
           hero: "url('/assets/hero-bg.jpg')",
         },

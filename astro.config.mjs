@@ -8,4 +8,8 @@ import icon from 'astro-icon';
 export default defineConfig({
   site: 'https://tradingwizard.vercel.app/',
   integrations: [tailwind(), mdx(), sitemap(), icon()],
+  output: 'server',
+  security: {
+    checkOrigin: false,
+  },
 });

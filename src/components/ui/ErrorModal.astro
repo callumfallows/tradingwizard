@@ -1,0 +1,39 @@
+---
+
+---
+
+<div id="errorModal" class="hidden relative items-center w-screen h-screen bg-opacity-60 z-50">
+  <div
+    class="flex justify-center mx-auto p-5 border w-96 shadow-lg rounded-md bg-white max-h-[500px]"
+  >
+    <div class="mt-3 text-center">
+      <h3 class="text-lg leading-6 font-medium text-red-900 mt-4">Subscription Failed</h3>
+      <div class="mt-2 px-7 py-3">
+        <p class="text-sm text-ted-500">Please verify your details and try again</p>
+      </div>
+      <div class="items-center px-4 py-3">
+        <button
+          id="closeErrorModal"
+          class="px-4 py-2 bg-red-500 text-white text-base font-medium rounded-md shadow-sm hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  const errorModal = document.getElementById('errorModal');
+  const closeErrorButton = document.getElementById('closeErrorModal');
+
+  closeErrorButton.addEventListener('click', () => {
+    errorModal.classList.add('hidden');
+  });
+
+  // Add this to window to make it accessible from contactform.astro
+  window.showErrorModal = () => {
+    errorModal.classList.remove('hidden');
+    errorModal.classList.add('flex');
+  };
+</script>

@@ -7,9 +7,5 @@ import icon from 'astro-icon';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://tradingwizard.vercel.app/',
-  output: 'server',
-  adapter: vercelServerless({
-    imageService: true,
-  }),
   integrations: [tailwind(), mdx(), sitemap(), icon()],
 });

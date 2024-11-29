@@ -1,16 +1,25 @@
 ---
 import logo from '../assets/logo.png';
-import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 import BackgroundImage from './ui/BackgroundImage.astro';
 import Contactform from './ui/contactform.astro';
 import CountdownTimer from './ui/CountdownTimer.astro';
+import Listitem from './ui/listitem.astro';
+import { fade } from 'astro:transitions';
 
 const bgImage = new URL('/hero-bg.jpg', Astro.site).toString();
+
+interface Props {
+  class?: string;
+}
 ---
 
 <main class="flex flex-col place-items-center">
-  <BackgroundImage src={bgImage} overlayColor="rgba(0, 0, 0, 0.5)" className="hero-section pb-10">
+  <BackgroundImage
+    src={bgImage}
+    overlayColor="rgba(255, 255, 255, 0.1)"
+    className="hero-section pb-10"
+  >
     <div class="flex justify-center">
       <div class="max-w-[200px] my-4 text-center">
         <Image
@@ -24,57 +33,37 @@ const bgImage = new URL('/hero-bg.jpg', Astro.site).toString();
       </div>
     </div>
     <div
-      class="flex w-full flex-col items-center justify-center bg-white contact-form max-w-3xl rounded-3xl mx-auto my-4 p-2 py-8 sm:p-10 space-y-8"
+      class="flex w-full flex-col items-center justify-center bg-white contact-form max-w-3xl rounded-3xl mx-auto my-4 p-2 py-8 px-10 sm:p-10 space-y-8"
     >
       <h1 class="font-sans text-primary text-center font-black text-2xl sm:text-3xl mb-4">
         Maîtrisez le trading avec le volume profile
       </h1>
-      <div class="flex flex-col gap-8 sm:gap-4 justify-center w-full mb-4">
-        <div class="flex w-full gap-2 justify-center items-center">
-          <Icon name="mdi:chevron-double-right" class="w-8 h-8 sm:w-5 sm:h-5 text-primary" />
-          <p
-            class="text-primary font-bold text-md sm:text-lg text-center sm:text-left w-full sm:w-auto"
-          >
-            Pourquoi les indicateurs classiques vous font perdre
-          </p>
-          <Icon name="mdi:chevron-double-left" class="w-8 h-8 sm:w-5 sm:h-5 text-primary" />
-        </div>
-        <div class="flex gap-2 justify-center items-center">
-          <Icon name="mdi:chevron-double-right" class="w-8 h-8 sm:w-5 sm:h-5 text-primary" />
-          <p
-            class="text-primary font-bold text-md sm:text-lg text-center sm:text-left w-full sm:w-auto"
-          >
-            Maîtriser des outils techniques avancés
-          </p>
-          <Icon name="mdi:chevron-double-left" class="w-8 h-8 sm:w-5 sm:h-5 text-primary" />
-        </div>
-        <div class="flex gap-2 justify-center items-center">
-          <Icon name="mdi:chevron-double-right" class="w-8 h-8 sm:w-5 sm:h-5 text-primary" />
-          <p
-            class="text-primary font-bold text-md sm:text-lg text-center sm:text-left w-full sm:w-auto"
-          >
-            Gagnez plus sans risquer votre capital
-          </p>
-          <Icon name="mdi:chevron-double-left" class="w-8 h-8 sm:w-5 sm:h-5 text-primary" />
-        </div>
-        <div class="flex gap-2 justify-center items-center">
-          <Icon name="mdi:chevron-double-right" class="w-8 h-8 sm:w-5 sm:h-5 text-primary" />
-          <p
-            class="text-primary font-bold text-md sm:text-lg text-center sm:text-left w-full sm:w-auto"
-          >
-            Prendre des décisions sans stress
-          </p>
-          <Icon name="mdi:chevron-double-left" class="w-8 h-8 sm:w-5 sm:h-5 text-primary" />
-        </div>
+      <div
+        transition:animate={fade({ duration: '0.4s' })}
+        class="flex flex-col gap-8 sm:gap-4 justify-center w-full mb-4"
+        id="animated-details"
+      >
+        <Listitem class="point-1 animate-item-1 tick-animation">
+          Pourquoi les indicateurs classiques vous font perdre
+        </Listitem>
+        <Listitem class="point-2 animate-item-2 tick-animation">
+          Maîtriser des outils techniques avancés
+        </Listitem>
+        <Listitem class="point-3 animate-item-3 tick-animation">
+          Gagnez plus sans risquer votre capital
+        </Listitem>
+        <Listitem class="point-4 animate-item-4 tick-animation">
+          Prendre des décisions sans stress
+        </Listitem>
       </div>
       <Contactform />
       <p class="text-black text-lg my-4">“Seul un numéro de telephone valide sera accepté”</p>
       <CountdownTimer />
     </div>
   </BackgroundImage>
-  <div class="bg-gradient-custom w-full">
-    <div class="flex justify-center max-w-3xl mx-auto flex-col gap-4 p-4 sm:p-10 md:px-0">
-      <h2 class="text-xl sm:text-2xl font-black text-white text-center mb-4">
+  <div class="bg-gradient-custom w-full p-10 sm:p-20" id="animated-intro">
+    <div class="flex justify-center max-w-3xl mx-auto flex-col gap-4 sm:p-10 md:px-0">
+      <h2 class="text-xl sm:text-2xl font-black text-white text-center sm:text-left mb-4">
         Maitrisez le volume profile en 90j pour un trading rentable
       </h2>
       <p class="text-white text-bold text-lg">
@@ -114,4 +103,114 @@ const bgImage = new URL('/hero-bg.jpg', Astro.site).toString();
   .bg-gradient-custom {
     background: linear-gradient(147deg, #16192c 42%, #327ab4 100%);
   }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-point {
+    opacity: 0;
+    animation: slideIn 0.8s ease-out forwards;
+  }
+
+  .contact-form {
+    animation: fadeIn 1s ease-out forwards;
+  }
 </style>
+
+<style>
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-item-1,
+  .animate-item-2,
+  .animate-item-3 {
+    opacity: 0;
+    animation: slideInFromLeft 0.5s ease-out forwards;
+  }
+
+  .animate-item-1 {
+    animation-delay: 0s;
+  }
+
+  .animate-item-2 {
+    animation-delay: 1s;
+  }
+
+  .animate-item-3 {
+    animation-delay: 1.6s;
+  }
+
+  .animate-item-4 {
+    animation-delay: 1.9s;
+  }
+</style>
+
+<script>
+  import { animate } from 'motion';
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const ticks = entry.target.querySelectorAll('.tick-animation');
+          ticks.forEach((tick, index) => {
+            setTimeout(() => {
+              tick.classList.add('show');
+            }, 200 * index);
+          });
+
+          // New card animations
+
+          const cards = entry.target.querySelectorAll('.tick-animation');
+          cards.forEach((card, index) => {
+            animate(
+              card,
+              {
+                opacity: [0, 1],
+              },
+              {
+                duration: 1.5,
+                delay: index * 0.25,
+                easing: 'ease-in-out',
+              }
+            );
+          });
+
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const list = document.getElementById('animated-details');
+    if (list) observer.observe(list);
+  });
+</script>

@@ -3,10 +3,15 @@ interface Props {
   className?: string;
 }
 
+import { fade } from 'astro:transitions';
+
 const { className = '' } = Astro.props;
 ---
 
-<div class={`bg-white rounded-lg card p-6 text-primary ${className}`}>
+<div
+  transition:animate={fade({ duration: '0.4s' })}
+  class={`bg-white rounded-lg card p-6 text-primary ${className}`}
+>
   <slot />
 </div>
 

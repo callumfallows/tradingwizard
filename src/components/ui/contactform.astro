@@ -1,5 +1,6 @@
 ---
 import Button from '../ui/button.astro';
+import axios from 'axios';
 ---
 
 <!-- To make this contact form work, create your free access key from https://web3forms.com/
@@ -79,6 +80,7 @@ import Button from '../ui/button.astro';
       form.querySelectorAll(':invalid')[0].focus();
       return;
     }
+
     const formData = new FormData(form);
     const object = Object.fromEntries(formData);
     const formDetails = {
@@ -89,40 +91,84 @@ import Button from '../ui/button.astro';
         { slug: 'phone_number', value: object.phone_number },
       ],
     };
+    console.log('Form submitted', formData);
+
     result.innerHTML = 'Sending...';
 
     const options = {
       method: 'POST',
+      withCredentials: false,
+      url: 'https://api.systeme.io/api/contacts',
       headers: {
         accept: 'application/json',
         'content-type': 'application/json',
         'X-API-Key': 'jabqip9riakaglwjgfldpohhug978oj07sjfjo146tzq211ihpc6pkhy5v8idnee',
       },
-      body: JSON.stringify(formDetails),
+      data: {
+        email: object.email_address,
+        fields: [
+          { slug: 'first_name', value: object.first_name },
+          { slug: 'phone_number', value: object.phone_number },
+        ],
+      },
     };
+    const data = JSON.stringify({
+      email: 'callum_fallows+4@hotmail.co.uk',
+      fields: [
+        {
+          slug: 'first_name',
+          value: 'Callum Fallows',
+        },
+        {
+          slug: 'phone_number',
+          value: '0777755444',
+        },
+      ],
+    });
 
-    fetch('https://api.systeme.io/api/contacts', options)
-      .then(async response => {
-        let json = await response.json();
-        if (response.status == 200) {
-          result.classList.add('text-green-500');
-          result.innerHTML = json.message;
-        } else {
-          console.log(response);
-          result.classList.add('text-red-500');
-          result.innerHTML = json.message;
-        }
-      })
-      .catch(error => {
-        console.log(error);
-        result.innerHTML = 'Something went wrong!';
-      })
-      .then(function () {
-        form.reset();
-        form.classList.remove('was-validated');
-        setTimeout(() => {
-          result.style.display = 'none';
-        }, 5000);
-      });
+    const xhr = new XMLHttpRequest();
+    xhr.withCredentials = false;
+
+    xhr.addEventListener('readystatechange', function () {
+      if (this.readyState === this.DONE) {
+        console.log(this.responseText);
+      }
+    });
+
+    xhr.open('POST', 'https://api.systeme.io/api/contacts');
+    xhr.setRequestHeader('accept', 'application/json');
+    xhr.setRequestHeader('content-type', 'application/json');
+    xhr.setRequestHeader(
+      'X-API-Key',
+      'jabqip9riakaglwjgfldpohhug978oj07sjfjo146tzq211ihpc6pkhy5v8idnee'
+    );
+
+    xhr.send(data);
+    // axios.auth('jabqip9riakaglwjgfldpohhug978oj07sjfjo146tzq211ihpc6pkhy5v8idnee');
+    // systeme
+    //   .post_contact()
+    //   .request(options)
+    //   .then(async response => {
+    //     let json = await response.json();
+    //     if (response.status == 200) {
+    //       result.classList.add('text-green-500');
+    //       result.innerHTML = json.message;
+    //     } else {
+    //       console.log(response);
+    //       result.classList.add('text-red-500');
+    //       result.innerHTML = json.message;
+    //     }
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //     result.innerHTML = 'Something went wrong!';
+    //   })
+    //   .then(function () {
+    //     form.reset();
+    //     form.classList.remove('was-validated');
+    //     setTimeout(() => {
+    //       result.style.display = 'none';
+    //     }, 5000);
+    //   });
   });
 </script>

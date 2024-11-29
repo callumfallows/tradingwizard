@@ -1,21 +1,27 @@
 ---
 import Container from './container.astro';
-import TestimonialCarousel from './ui/TestimonialCarousel.astro';
+import Testimonial from './ui/Testimonial.astro';
 ---
 
 <main
-  class="flex flex-col place-items-center w-full p-6 sm:p-10 mt-4 sm:mt-16 bg-gray-50 shadow-inner"
+  class="flex flex-col place-items-center w-full p-6 sm:p-10 mt-4 sm:mt-16 bg-gradient-custom shadow-inner"
 >
   <Container>
     <div class="flex w-full flex-row justify-between gap-2 md:gap-8 rounded-lg mx-auto">
-      <div class="flex flex-col w-full">
-        <h3 class="text-primary font-black text-3xl mb-2 md:mb-8 text-center">
+      <div class="flex flex-col w-full py-8">
+        <h3 class="text-white font-black text-3xl mb-2 md:mb-8 text-center">
           Les membres témoignent !
         </h3>
       </div>
     </div>
   </Container>
-  <div class="flex w-full h-[550px] py-4 md:py-0 md:h-[550px]">
-    <TestimonialCarousel />
+  <div class="flex w-full py-4 md:py-0">
+    <Testimonial />
   </div>
 </main>
+
+<style>
+  .bg-gradient-custom {
+    background: linear-gradient(147deg, #16192c 42%, #327ab4 100%);
+  }
+</style>

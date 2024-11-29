@@ -3,12 +3,43 @@ import Card from './ui/Card.astro';
 import Container from './container.astro';
 import BackgroundImage from './ui/BackgroundImage.astro';
 import Link from './ui/link.astro';
-import Tick from './ui/animations/tick.astro';
 
 const resolvedImageWithDomain = new URL('/bg-alternative.jpg', Astro.site).toString();
 ---
 
-<main class="flex place-items-center w-full">
+<script>
+  import { animate } from 'motion';
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        // New card animations
+        const cards = entry.target.querySelectorAll('.flex.flex-row');
+        cards.forEach((card, index) => {
+          animate(
+            card,
+            {
+              opacity: [0, 1],
+            },
+            {
+              duration: 1.5,
+              delay: index * 0.25,
+              easing: 'ease-in-out',
+            }
+          );
+        });
+
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const list = document.getElementById('animated-list');
+    if (list) observer.observe(list);
+  });
+</script>
+<main class="flex place-items-center w-full relative">
   <BackgroundImage src={resolvedImageWithDomain} className="hero-section p-10 min-h-[350px]">
     <Container>
       <div class="flex w-full flex-col justify-center rounded-lg mx-auto sm:p-10">
@@ -17,25 +48,21 @@ const resolvedImageWithDomain = new URL('/bg-alternative.jpg', Astro.site).toStr
         </h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="animated-list">
           <Card className="flex flex-row items-center gap-4">
-            <Tick />
             <p class="text-primary font-black text-lg">
               Pourquoi les indicateurs classiques vous font perdre
             </p>
           </Card>
           <Card className="flex flex-row items-center gap-4">
-            <Tick />
             <p class="text-primary font-black text-lg">
               Découvrez les indicateurs avancés pour un trading gagnant
             </p>
           </Card>
           <Card className="flex flex-row items-center gap-4">
-            <Tick />
             <p class="text-primary font-black text-lg">
               Une approche systématique (trading sans émotions)
             </p>
           </Card>
           <Card className="flex flex-row items-center gap-4">
-            <Tick />
             <p class="text-primary font-black text-lg">
               Ne pas utiliser son propre capital & démultiplier ses gains
             </p>
@@ -56,47 +83,6 @@ const resolvedImageWithDomain = new URL('/bg-alternative.jpg', Astro.site).toStr
   .hero-section {
     background-size: cover;
     background-position: bottom;
+    background-position: left;
   }
 </style>
-
-<!-- <script>
-  import { animate } from 'motion';
-
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const ticks = entry.target.querySelectorAll('.tick-animation');
-          ticks.forEach((tick, index) => {
-            setTimeout(() => {
-              tick.classList.add('show');
-            }, 200 * index);
-          });
-
-          // New card animations
-          const cards = entry.target.querySelectorAll('.flex.flex-row');
-          cards.forEach((card, index) => {
-            animate(
-              card,
-              {
-                opacity: [0, 1],
-              },
-              {
-                duration: 1.5,
-                delay: index * 0.25,
-                easing: 'ease-in-out',
-              }
-            );
-          });
-
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const list = document.getElementById('animated-list');
-    if (list) observer.observe(list);
-  }); -->

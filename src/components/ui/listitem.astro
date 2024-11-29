@@ -1,0 +1,19 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  class?: string;
+}
+const { class: className, ...rest } = Astro.props;
+---
+
+<div
+  class:list={['flex w-full gap-2 justify-center items-center text-black animate-point', className]}
+  class=""
+>
+  <Icon name="mdi:chevron-double-right" class="w-8 h-8 sm:w-5 sm:h-5 text-primary" />
+  <p class="font-bold text-md sm:text-lg text-center sm:text-left w-full sm:w-auto">
+    <slot />
+  </p>
+  <Icon name="mdi:chevron-double-left" class="w-8 h-8 sm:w-5 sm:h-5 text-primary" />
+</div>

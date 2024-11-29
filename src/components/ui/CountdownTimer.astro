@@ -1,4 +1,4 @@
-<div class="countdown-timer flex gap-4 justify-center my-6">
+<div class="countdown-timer flex gap-2 sm:gap-4 justify-center my-6">
   <div class="time-block">
     <span id="days" class="text-3xl font-bold text-primary">00</span>
     <span class="text-md text-bold text-gray-600">Jours</span>
@@ -30,7 +30,7 @@
   }
 </style>
 
-<script>
+<script is:inline>
   function updateCountdown() {
     const targetDate = new Date('2024-12-25T19:51:59').getTime();
 

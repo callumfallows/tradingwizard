@@ -7,38 +7,6 @@ import Link from './ui/link.astro';
 const resolvedImageWithDomain = new URL('/bg-alternative.jpg', Astro.site).toString();
 ---
 
-<script>
-  import { animate } from 'motion';
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        // New card animations
-        const cards = entry.target.querySelectorAll('.flex.flex-row');
-        cards.forEach((card, index) => {
-          animate(
-            card,
-            {
-              opacity: [0, 1],
-            },
-            {
-              duration: 1.5,
-              delay: index * 0.25,
-              easing: 'ease-in-out',
-            }
-          );
-        });
-
-        observer.unobserve(entry.target);
-      });
-    },
-    { threshold: 0.5 }
-  );
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const list = document.getElementById('animated-list');
-    if (list) observer.observe(list);
-  });
-</script>
 <main class="flex place-items-center w-full relative">
   <BackgroundImage src={resolvedImageWithDomain} className="hero-section p-10 min-h-[350px]">
     <Container>
@@ -79,6 +47,38 @@ const resolvedImageWithDomain = new URL('/bg-alternative.jpg', Astro.site).toStr
   </BackgroundImage>
 </main>
 
+<script>
+  import { animate } from 'motion';
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        // New card animations
+        const cards = entry.target.querySelectorAll('.flex.flex-row');
+        cards.forEach((card, index) => {
+          animate(
+            card,
+            {
+              opacity: [0, 1],
+            },
+            {
+              duration: 1.5,
+              delay: index * 0.25,
+              easing: 'ease-in-out',
+            }
+          );
+        });
+
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const list = document.getElementById('animated-list');
+    if (list) observer.observe(list);
+  });
+</script>
 <style>
   .hero-section {
     background-size: cover;

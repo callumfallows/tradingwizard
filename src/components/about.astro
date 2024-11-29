@@ -15,7 +15,7 @@ const profileImage = new URL('/jonathan-girard.jpg', Astro.site).toString();
     <Container>
       <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-7xl items-center p-10">
         {/* Left Column */}
-        <div class="relative max-w-lg mx-auto sm:mx-0">
+        <div class="relative max-w-lg mx-auto sm:mx-0 w-full justify-center flex-col">
           <Image
             loading={'lazy'}
             src={profileImage}
@@ -26,9 +26,9 @@ const profileImage = new URL('/jonathan-girard.jpg', Astro.site).toString();
           />
 
           <Card
-            className="absolute max-w-[300px] bottom-[-20px] left-1/4 bg-white/90 backdrop-blur-sm m"
+            className="mx-auto relative max-w-[300px] bottom-[50px] bg-white/90 backdrop-blur-sm profile-image"
           >
-            <div class="p:0 sm:p-2">
+            <div class="p:0 sm:p-2 w-full flex flex-col align-middle justify-center">
               <h3 class="text-sm sm:text-xl font-black text-primary">JONATHAN GIRARD</h3>
               <p class="text-sm sm:text-md text-black">Trader et formateur</p>
             </div>

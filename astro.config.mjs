@@ -14,7 +14,4 @@ export default defineConfig({
   security: {
     checkOrigin: false,
   },
-  adapter: vercelServerless({
-    imageService: true,
-  }),
 });

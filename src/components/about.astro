@@ -7,7 +7,7 @@ import BackgroundImage from './ui/BackgroundImage.astro';
 
 const bgImage = new URL('/bg-alternative.jpg', Astro.site).toString();
 
-const jonathon = new URL('/jonathan-girard.jpg', Astro.site).toString();
+const profileImage = new URL('/jonathan-girard.jpg', Astro.site).toString();
 ---
 
 <main class="flex place-items-center">
@@ -18,12 +18,13 @@ const jonathon = new URL('/jonathan-girard.jpg', Astro.site).toString();
         <div class="relative max-w-lg mx-auto sm:mx-0">
           <Image
             loading={'lazy'}
-            src={jonathon}
+            src={profileImage}
             alt="JONATHAN GIRARD"
             width={512}
             height={683}
             class="rounded-xl w-full"
           />
+
           <Card
             className="absolute max-w-[300px] bottom-[-20px] left-1/4 bg-white/90 backdrop-blur-sm m"
           >

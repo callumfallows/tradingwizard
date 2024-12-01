@@ -9,7 +9,14 @@ import axios from 'axios';
 <!-- To make this contact form work, create your free access key from https://web3forms.com/
      Then you will get all form submissions in your email inbox. -->
 <div class="flex w-full relative">
-  <form method="POST" id="form" class="w-full max-w-md mx-auto" class="needs-validation" novalidate>
+  <form
+    method="POST"
+    id="form"
+    class="w-full max-w-md mx-auto"
+    class="needs-validation"
+    novalidate
+    action="https://systeme.io/embedded/24357160/subscription"
+  >
     <input type="checkbox" class="hidden" style="display:none" name="botcheck" />
     <div class="mb-5">
       <input
@@ -22,11 +29,11 @@ import axios from 'axios';
       <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">First Name</div>
     </div>
     <div class="mb-5">
-      <label for="email_address" class="sr-only">E-mail</label><input
-        id="email_address"
+      <label for="email" class="sr-only">E-mail</label><input
+        id="email"
         type="email"
         placeholder="E-mail"
-        name="email_address"
+        name="email"
         required
         class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
       />
@@ -77,45 +84,45 @@ import axios from 'axios';
 </style>
 
 <script is:inline>
-  const form = document.getElementById('form');
+  // const form = document.getElementById('form');
 
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
-    form.classList.add('was-validated');
-    if (!form.checkValidity()) {
-      form.querySelectorAll(':invalid')[0].focus();
-      return;
-    }
+  // form.addEventListener('submit', async function (e) {
+  //   e.preventDefault();
+  //   form.classList.add('was-validated');
+  //   if (!form.checkValidity()) {
+  //     form.querySelectorAll(':invalid')[0].focus();
+  //     return;
+  //   }
 
-    const formData = new FormData(form);
-    const object = Object.fromEntries(formData);
+  //   const formData = new FormData(form);
+  //   const object = Object.fromEntries(formData);
 
-    const options = {
-      method: 'POST',
-      headers: {
-        accept: 'application/json',
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        email_address: object.email_address,
-        first_name: object.first_name,
-        phone_number: object.phone_number,
-        locale: 'en',
-      }),
-    };
-    await fetch('/api/contact-form', options)
-      .then(function (res) {
-        console.log('e', res);
-        if (res.status === 200) {
-          window.showSuccessModal(); // Show the success modal
-        } else {
-          window.showErrorModal();
-        }
-        return res.json();
-      })
-      .catch(function (err) {
-        window.showErrorModal(); // Show the error modal
-        console.log(err);
-      });
-  });
+  //   const options = {
+  //     method: 'POST',
+  //     headers: {
+  //       accept: 'application/json',
+  //       'content-type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       email: object.email,
+  //       first_name: object.first_name,
+  //       phone_number: object.phone_number,
+  //       locale: 'en',
+  //     }),
+  //   };
+  //   await fetch('/api/contact-form', options)
+  //     .then(function (res) {
+  //       console.log('e', res);
+  //       if (res.status === 200) {
+  //         window.showSuccessModal(); // Show the success modal
+  //       } else {
+  //         window.showErrorModal();
+  //       }
+  //       return res.json();
+  //     })
+  //     .catch(function (err) {
+  //       window.showErrorModal(); // Show the error modal
+  //       console.log(err);
+  //     });
+  // });
 </script>

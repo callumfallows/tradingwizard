@@ -9,6 +9,8 @@ module.exports = {
         'primary-light': '#2B6191',
         'title-alt': '#515151',
         subtitle: '#429CD2',
+        'bg-muted': '#f9fafb',
+        testiomonal: 'rgb(250 204 20 / 30%)',
       },
       fontFamily: {
         sans: ['Mulish Variable', ...defaultTheme.fontFamily.sans],

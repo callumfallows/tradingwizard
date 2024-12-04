@@ -12,25 +12,25 @@ const resolvedImageWithDomain = new URL('/bg-alternative.jpg', Astro.site).toStr
     <Container>
       <div class="flex w-full flex-col justify-center rounded-lg mx-auto sm:p-10">
         <h3 class="text-primary font-black text-xl sm:text-2xl mb-8 text-left">
-          Ce que vous allez découvrir pendant ce semaine
+          Ce que vous allez découvrir pendant ce Webinaire
         </h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="animated-list">
-          <Card className="flex flex-row items-center gap-4">
+          <Card className="flex flex-row items-center gap-4 animated-card">
             <p class="text-primary font-black text-lg">
               Pourquoi les indicateurs classiques vous font perdre
             </p>
           </Card>
-          <Card className="flex flex-row items-center gap-4">
+          <Card className="flex flex-row items-center gap-4 animated-card">
             <p class="text-primary font-black text-lg">
               Découvrez les indicateurs avancés pour un trading gagnant
             </p>
           </Card>
-          <Card className="flex flex-row items-center gap-4">
+          <Card className="flex flex-row items-center gap-4 animated-card">
             <p class="text-primary font-black text-lg">
               Une approche systématique (trading sans émotions)
             </p>
           </Card>
-          <Card className="flex flex-row items-center gap-4">
+          <Card className="flex flex-row items-center gap-4 animated-card">
             <p class="text-primary font-black text-lg">
               Ne pas utiliser son propre capital & démultiplier ses gains
             </p>
@@ -49,21 +49,19 @@ const resolvedImageWithDomain = new URL('/bg-alternative.jpg', Astro.site).toStr
 
 <script>
   import { animate } from 'motion';
+
   const observer = new IntersectionObserver(
     entries => {
       entries.forEach(entry => {
         // New card animations
-        const cards = entry.target.querySelectorAll('.flex.flex-row');
+        const cards = entry.target.querySelectorAll('.animated-card');
         cards.forEach((card, index) => {
           animate(
             card,
-            {
-              opacity: [0, 1],
-            },
+            {},
             {
               duration: 1.5,
               delay: index * 0.25,
-              easing: 'ease-in-out',
             }
           );
         });

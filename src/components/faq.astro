@@ -4,7 +4,7 @@ import Accordion from './ui/Accordion.astro';
 import Link from './ui/link.astro';
 ---
 
-<main class="flex place-items-center w-full">
+<main class="flex place-items-center w-full shadow-inner">
   <div class="bg-white w-full">
     <Container>
       <div class="flex w-full flex-col md:flex-row justify-between gap-8 rounded-lg mx-auto p-10">
@@ -22,8 +22,7 @@ import Link from './ui/link.astro';
             <Accordion
               color="black"
               title="Combien de temps dure le live?"
-              content={`Les laggings indicateurs ne vous aident pas, bien au contraire (MACD,RSI,stochastic..)
-  Les 7 erreurs que font les traders débutants et comment les éviter`}
+              content={`La durée du live est estimée à 1h30 environ`}
             />
             <Accordion
               color="black"

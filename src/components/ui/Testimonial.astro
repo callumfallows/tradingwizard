@@ -10,6 +10,17 @@ Je le recommende à toutes les personnes qui veulent se former au trading ou am�
     author: 'Jonathan Brulhart',
     rating: 5,
   },
+
+  {
+    text: `Le séminaire Wizard Trading m’a permis de parfaitement comprendre l’environnement crypto.
+Jonathan est un vrai professionnel expert et passionné et le suivi et l’accompagnement post séminaire est génial.
+Jonathan est toujours disponible pour nous aider individuellement ou collectivement à évoluer dans ce nouveau monde et nous forme parfaitement pour mettre en place une STRATEGIE et la mettre en œuvre.
+Grâce  à Jonathan J’ai pu faire des points d’entrée sur les marchés immédiatement profitables.
+Je recommande les yeux fermés.
+Merci Jonathan.`,
+    author: 'Nicolas Kott',
+    rating: 5,
+  },
   {
     text: `Débutant dans ce domaine des cryptos, le suivi et les conseils avisés la formation donné part jonathan m on permis de réaliser un gain de 1400 E en un mois sur avec un investissement de 10 000 EUROS, Jonathan nous enseigne une approche prudente et réflechie afin de réussir nos investissement.`,
     author: 'Stéphane Neveu',
@@ -21,43 +32,38 @@ Il est passionné et pédagogue, ses explications sont claires et sa méthode fa
     author: 'Marie B',
     rating: 5,
   },
-  {
-    text: `Le séminaire Wizard Trading m’a permis de parfaitement comprendre l’environnement crypto.
-Jonathan est un vrai professionnel expert et passionné et le suivi et l’accompagnement post séminaire est génial.
-Jonathan est toujours disponible pour nous aider individuellement ou collectivement à évoluer dans ce nouveau monde et nous forme parfaitement pour mettre en place une STRATEGIE et la mettre en œuvre.
-Grâce  à Jonathan J’ai pu faire des points d’entrée sur les marchés immédiatement profitables.
-Je recommande les yeux fermés.
-Merci Jonathan.`,
-    author: 'Nicolas Kott',
-    rating: 5,
-  },
 ];
 ---
 
-<div class="w-full flex justify-end mx-auto px-0 md:px-4 py-r sm:py-8">
-  <div class="grid grid-cols-1 md:grid-cols-2 w-full justify-center gap-20 md:gap-8">
+<div class="w-full flex justify-end mx-auto px-0 md:px-4 py-r sm:py-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 w-full justify-center gap-10 sm:gap-8">
     {
       testimonials.map(testimonial => (
-        <div class="flex flex-row px-4 items-center md:items-start justify-star md:justify-center">
+        <div class="flex flex-row px-4 sm:px-0 items-center md:items-start justify-star md:justify-center">
           <div class="flex flex-col items-center gap-0">
-            <div class="bg-white p-6 rounded-lg shadow-lg mb-8 relative w-full max-w-lg">
+            <div class="bg-gray-50 p-4 rounded-lg shadow-lg mb-8 relative w-full max-w-2xl testimonal-wrapper  min-h-[180px] border-solid border-gray-900 content-center">
               <p class="text-gray-700 text-sm sm:text-md leading-relaxed">"{testimonial.text}"</p>
-              <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[12px] border-l-transparent border-t-[16px] border-t-white border-r-[12px] border-r-transparent" />
+              <div
+                class="absolute -bottom-4 left-1/2 
+              -translate-x-1/2 w-0 h-0 border-l-[12px] border-l-transparent border-t-[16px]  border-r-[12px] border-r-transparent testimonal-arrow"
+              />
             </div>
-            <div class="flex gap-1 mb-3">
+            <div class="flex gap-1 mb-0">
               {[...Array(testimonial.rating)].map(() => (
                 <div class="star-icon">
                   <Icon name="mdi:star" class="w-5 h-5 text-yellow-400" />
                 </div>
               ))}
             </div>
-            <p class="font-semibold text-white">{testimonial.author}</p>
+            <p class="font-semibold text-black">{testimonial.author}</p>
           </div>
         </div>
       ))
     }
   </div>
 </div>
+
+<style></style>
 
 <script is:inline>
   function animateStars() {
@@ -79,6 +85,14 @@ Merci Jonathan.`,
 </script>
 
 <style>
+  .testimonal-arrow {
+    border-top-color: rgba(255, 255, 255, 0.8);
+  }
+  .testimonal-wrapper {
+    box-shadow: 0 0 5px 5px hsl(50deg 100% 30% / 10%);
+    border: 2px solid;
+    border-color: #e0e0e0;
+  }
   .star-icon {
     transition: transform 0.5s ease;
   }

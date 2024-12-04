@@ -13,7 +13,7 @@ const profileImage = new URL('/jonathan-girard.jpg', Astro.site).toString();
 <main class="flex place-items-center">
   <BackgroundImage src={bgImage} className="hero-section py-10">
     <Container>
-      <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-7xl items-center p-10">
+      <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-7xl p-10">
         {/* Left Column */}
         <div class="relative max-w-lg mx-auto sm:mx-0 w-full justify-center flex-col">
           <Image
@@ -24,7 +24,6 @@ const profileImage = new URL('/jonathan-girard.jpg', Astro.site).toString();
             height={683}
             class="rounded-xl w-full"
           />
-
           <Card
             className="mx-auto relative max-w-[300px] bottom-[50px] bg-white/90 backdrop-blur-sm profile-image"
           >
@@ -40,8 +39,7 @@ const profileImage = new URL('/jonathan-girard.jpg', Astro.site).toString();
           <div class="flex flex-col gap-2">
             <h2 class="text-3xl font-black tracking-tight text-primary">JONATHAN GIRARD</h2>
             <h3 class="text-xl text-bold text-subtitle">
-              Un trader expérimenté, passionné, et surtout transparent sur ses positions
-              quotidiennes sur les indices boursiers.
+              Un trader expérimenté, passioné et spécialisé sur le volume profile
             </h3>
           </div>
 

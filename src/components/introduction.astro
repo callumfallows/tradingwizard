@@ -1,0 +1,78 @@
+---
+import Card from './ui/Card.astro';
+import Container from './container.astro';
+import BackgroundImage from './ui/BackgroundImage.astro';
+import Link from './ui/link.astro';
+---
+
+<main class="flex place-items-center w-full relative">
+  <div class="bg-gradient-custom w-full p-10 sm:p-20" id="animated-intro">
+    <div class="flex justify-center max-w-7xl mx-auto flex-col gap-4 sm:p-10 md:px-0">
+      <h2 class="text-xl sm:text-2xl font-black text-white text-center sm:text-left mb-4">
+        Maitrisez le volume profile en 90j pour un trading rentable
+      </h2>
+      <p class="text-white text-bold text-lg">
+        Apprenez à utiliser tous les outils pour devenir un trader professionnel :
+      </p>
+      <p class="text-white text-bold text-lg">
+        → Pourquoi 90% des traders perdent sur les marchés Découvrez les 7 erreurs courantes que les
+        traders débutants font et qui fait qu’ils ne seront jamais rentable
+
+        <p class="text-white text-bold text-lg">
+          → Découvrez les indicateurs avancés des professionnels Vous verrez pourquoi le volume
+          profile (depuis 1990 aux USA) est toujours utilisé aujourd’hui, et pourquoi l’orderflow
+          est indispensable aujourd’hui en trading
+        </p>
+
+        <p class="text-white text-bold text-lg">
+          → Une approche systématique (trading sans émotions) Une approche systématique et
+          disciplinée pour maximiser ses chances d’être gagnant
+        </p>
+        <p class="text-white text-bold text-lg">
+          → Ne pas risquer son capital pour décupler ses gains Utiliser le levier des prop firms
+          pour ne pas risque son copital et démultiplier ses gainsi
+        </p>
+      </p>
+    </div>
+  </div>
+</main>
+
+<script>
+  import { animate } from 'motion';
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        // New card animations
+        const cards = entry.target.querySelectorAll('.animated-card');
+        cards.forEach((card, index) => {
+          animate(
+            card,
+            {
+              opacity: [0, 1],
+            },
+            {
+              duration: 1.5,
+              delay: index * 0.25,
+              easing: 'ease-in-out',
+            }
+          );
+        });
+
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const list = document.getElementById('animated-list');
+    if (list) observer.observe(list);
+  });
+</script>
+<style>
+  .hero-section {
+    background-size: cover;
+    background-position: bottom;
+    background-position: left;
+  }
+</style>

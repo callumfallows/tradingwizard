@@ -1,37 +1,20 @@
 ---
 import Hero from '@components/hero.astro';
-import Intro from '@components/intro.astro';
 import Layout from '@layouts/Layout.astro';
 import ProgramContent from '@components/program-content.astro';
+import Faq from '@components/faq.astro';
 import About from '@components/about.astro';
 import Testimonials from '@components/testimonials.astro';
-import Faq from '@components/faq.astro';
-import SuccessModal from '@components/ui/SuccessModal.astro';
-import ErrorModal from '@components/ui/ErrorModal.astro';
+import Description from '@components/course-description.astro';
 ---
 
 <Layout title="Jonathon Girard">
-  <!-- <div class="scroll w-full h-full">
-  </div> -->
   <Hero />
-
-  <!-- <div class="bg-white pt-[600px] sm:pt-[1000px]"> -->
-  <Intro />
-  <ProgramContent />
   <About />
+  <Description />
+
   <Testimonials />
+  <ProgramContent />
+
   <Faq />
-  <div class="absolute top-0 left-0">
-    <SuccessModal />
-    <ErrorModal />
-  </div>
-  <!-- </div> -->
 </Layout>
-<!-- 
-<style>
-  .scroll {
-    position: fixed;
-    left: 0;
-    z-index: 1;
-  }
-</style> -->

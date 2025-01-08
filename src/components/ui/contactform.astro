@@ -1,9 +1,5 @@
 ---
 import Button from '../ui/button.astro';
-import type { APIRoute } from 'astro';
-
-import SuccessModal from './SuccessModal.astro';
-import axios from 'axios';
 ---
 
 <!-- To make this contact form work, create your free access key from https://web3forms.com/
@@ -21,12 +17,12 @@ import axios from 'axios';
     <div class="mb-5">
       <input
         type="text"
-        placeholder="First Name"
+        placeholder="Prénom"
         required
         class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
         name="first_name"
       />
-      <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">First Name</div>
+      <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">Prénom</div>
     </div>
     <div class="mb-5">
       <label for="email" class="sr-only">E-mail</label><input
@@ -37,31 +33,54 @@ import axios from 'axios';
         required
         class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
       />
-      <div class="empty-feedback text-red-400 text-sm mt-1">Please provide your email address.</div>
+      <div class="empty-feedback text-red-400 text-sm mt-1">
+        Veuillez fournir votre adresse e-mail.
+      </div>
       <div class="invalid-feedback text-red-400 text-sm mt-1">
-        Please provide a valid email address.
+        Veuillez fournir une adresse e-mail valide.
       </div>
     </div>
-    <div class="mb-3">
-      <label for="phone_number" class="sr-only">Email Address</label><input
+    <div class="mb-3 flex items-center">
+      <label
+        for="phone_number"
+        class="flex items-center bg-gray-100 px-3 py-3 border-2 border-r-0 border-gray-300 rounded-l-md"
+      >
+        <img src="/fr-flag.png" alt="French flag" class="w-5 h-auto mr-1" />
+        <span class="text-gray-800 pr-4">+33</span>
+      </label>
+      <input
         id="phone_number"
-        type="text"
-        placeholder="Phone Number"
+        type="tel"
+        pattern="^[67][0-9]{8}$"
+        placeholder="6XXXXXXXX or 7XXXXXXXX"
         name="phone_number"
         required
-        class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
+        class="w-full px-4 py-3 border-2 border-l-0 placeholder:text-gray-800 rounded-r-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
       />
       <div class="empty-feedback text-red-400 text-sm mt-1">
-        Please provide your contact number.
+        Veuillez fournir votre numéro de contact.
       </div>
       <div class="invalid-feedback text-red-400 text-sm mt-1">
-        Please provide a valid contact number.
+        Veuillez fournir un numéro de contact valide
+      </div>
+      <div class="invalid-feedback text-red-400 text-sm mt-1">
+        Le numéro doit commencer par 6 ou 7 et contenir 9 chiffres
       </div>
     </div>
     <Button type="submit" size="lg" block>Inscrivez-vous gratuitement</Button>
     <div id="result" class="mt-3 text-center"></div>
   </form>
 </div>
+<script>
+  const form = document.getElementById('form');
+  const phoneInput = document.getElementById('phone_number');
+
+  if (form && phoneInput) {
+    form.addEventListener('submit', function (e) {
+      phoneInput.value = '+33' + phoneInput.value;
+    });
+  }
+</script>
 
 <style>
   .invalid-feedback,
@@ -82,47 +101,3 @@ import axios from 'axios';
     border-color: #dc3545;
   }
 </style>
-
-<script is:inline>
-  // const form = document.getElementById('form');
-
-  // form.addEventListener('submit', async function (e) {
-  //   e.preventDefault();
-  //   form.classList.add('was-validated');
-  //   if (!form.checkValidity()) {
-  //     form.querySelectorAll(':invalid')[0].focus();
-  //     return;
-  //   }
-
-  //   const formData = new FormData(form);
-  //   const object = Object.fromEntries(formData);
-
-  //   const options = {
-  //     method: 'POST',
-  //     headers: {
-  //       accept: 'application/json',
-  //       'content-type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       email: object.email,
-  //       first_name: object.first_name,
-  //       phone_number: object.phone_number,
-  //       locale: 'en',
-  //     }),
-  //   };
-  //   await fetch('/api/contact-form', options)
-  //     .then(function (res) {
-  //       console.log('e', res);
-  //       if (res.status === 200) {
-  //         window.showSuccessModal(); // Show the success modal
-  //       } else {
-  //         window.showErrorModal();
-  //       }
-  //       return res.json();
-  //     })
-  //     .catch(function (err) {
-  //       window.showErrorModal(); // Show the error modal
-  //       console.log(err);
-  //     });
-  // });
-</script>
